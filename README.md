@@ -19,16 +19,12 @@ int main() {
 
 ```
 
-Members: Daniel Volya and Nicholas Suhlman
+Authors: Daniel Volya and Nicholas Suhlman
+Fork Maintainer: BobTheHuge
 
 # Dependencies: 
     - llvm (VERSION 8), llvm.analysis, llvm.bitwriter, menhir
     - llvm-dis, llc, clang
 
 # To run:
-    `make tests`
-
-# The output:
-    `tests/%.llvm` - human-readable llvm
-    `tests/%.exe` - the executable
-    `tests/%.out` - the output of the running the executable
+    `dune build` then `dune exec llvmc {input file} {executable name}`
