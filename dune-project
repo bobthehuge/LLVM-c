@@ -5,15 +5,15 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github bobthehuge/LLVM-c))
 
-(authors "Author Name")
+(authors "Daniel Volya" "Nicholas Suhlman")
 
-(maintainers "Maintainer Name")
+(maintainers "Henri Weidmann")
 
-(license LICENSE)
+;(license LICENSE)
 
-(documentation https://url/to/documentation)
+;(documentation https://url/to/documentation)
 
 (using menhir 2.0)
 

@@ -24,4 +24,12 @@ int main() {
     - llvm-dis, llc, clang
 
 # To run:
-    `dune build` then `dune exec llvmc {input file} {executable name}`
+    ```
+    dune build
+    ```
+    The executable should be located at `_build/install/default/bin/` (This is were the provided symlink points at)
+    ```
+    ./llvmc <file.sc> -o <out>
+    ```
+    This produces an executable named `out` with file.sc source code. For further infos, please use `./llvmc --help`
+
