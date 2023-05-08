@@ -20,7 +20,7 @@ int main() {
 ```
 
 # Dependencies: 
-    - llvm (VERSION 8), llvm.analysis, llvm.bitwriter, menhir
+    - llvm (VERSION 14.0.6), llvm.analysis, llvm.bitwriter, menhir, dune
     - llvm-dis, llc, clang
 
 # To run:
