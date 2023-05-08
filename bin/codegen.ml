@@ -25,7 +25,7 @@ let rec create_list_of_types args =
     | [] -> []
     | hd::tl -> 
             ( match hd with 
-            | VariableDeclaration (t, n) -> [(get_type t)]@(create_list_of_types tl)
+            | VariableDeclaration (t, _) -> [(get_type t)]@(create_list_of_types tl)
             | _ -> failwith "not type in args?"
             )
 let rec create_list_of_arg_names args=
@@ -98,7 +98,7 @@ let rec codegen_expr (e: expr) =
                 | Not_found -> raise (Error "unknown variable name")
             in
             match v with
-            | t, v -> (*build_load v name builder*) v
+            | _, v -> (*build_load v name builder*) v
             )
 
     | Assignment (_,_) -> failwith "codegen not supported"
@@ -174,7 +174,7 @@ and codegen_statement (s: statement) =
 let rec codegen_main_r (b:block) = 
     match b with
     | [] ->()
-    | hd::tl -> (codegen_statement hd); codegen_main_r tl
+    | hd::tl -> let _ = (codegen_statement hd) in codegen_main_r tl
 
 
 

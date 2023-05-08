@@ -1,0 +1,10 @@
+(menhir (modules parser))
+
+(ocamllex lexer)
+
+(executable
+ (public_name llvmc)
+ (name main)
+ (libraries llvm
+            llvm.analysis
+            llvm.bitwriter))

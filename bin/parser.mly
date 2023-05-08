@@ -23,8 +23,8 @@
 
 %%
 
-program: stmts EOF                   { $1 }
-    ;
+program: stmts EOF { $1 }
+;
 
 stmts : stmt { [$1] }
     | stmts stmt { $1@[$2] }
@@ -71,7 +71,9 @@ call_args : {[]}
     | call_args TCOMMA expr {$1@[$3]}
     ;
 
-    comparison : TCEQ {$1} | TCNE {$1} | TCLT {$1} | TCLE {$1} | TCGT {$1} | TCGE {$1} | TPLUS {$1} | TMINUS {$1} | TMUL {$1} | TDIV {$1} | TCAND{$1} | TCOR{$1}
-           ;
-
+comparison : 
+    | TCEQ {$1} | TCNE {$1} | TCLT {$1} | TCLE {$1} 
+    | TCGT {$1} | TCGE {$1} | TPLUS {$1} | TMINUS {$1} 
+    | TMUL {$1} | TDIV {$1} | TCAND{$1} | TCOR{$1}
+    ;
 %%
