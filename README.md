@@ -27,9 +27,9 @@ int main() {
     ```
     dune build
     ```
-    The executable should be located at `_build/install/default/bin/` (This is were the provided symlink points at)
+    The executable should be located at '_build/install/default/bin/' (This is were the provided symlink points at)
     ```
     ./llvmc <file.sc> -o <out>
     ```
-    This produces an executable named `out` with file.sc source code. For further infos, please use `./llvmc --help`
+    This produces an executable named 'out' with file.sc source code. For further infos, please use './llvmc --help'
 
