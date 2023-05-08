@@ -19,9 +19,6 @@ int main() {
 
 ```
 
-Authors: Daniel Volya and Nicholas Suhlman
-Fork Maintainer: BobTheHuge
-
 # Dependencies: 
     - llvm (VERSION 8), llvm.analysis, llvm.bitwriter, menhir
     - llvm-dis, llc, clang
