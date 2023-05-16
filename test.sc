@@ -1,5 +1,5 @@
 int main() {
-    int a = 3
-    printf(a)
+    double a = 3
+    printf(a%3)
     0
 }

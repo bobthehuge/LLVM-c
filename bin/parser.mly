@@ -5,7 +5,7 @@
 %token <int> TINTEGER
 %token <float> TDOUBLE
 %token <string> TIDENTIFIER
-%token <string> TPLUS TMINUS TMUL TDIV
+%token <string> TPLUS TMINUS TMUL TDIV TMOD
 %token TLPAREN TRPAREN TLBRACE TRBRACE
 %token <string> TEQUAL TCEQ TCNE TCLT TCLE TCGT TCGE TCAND TCOR
 %token TCOMMA EOF
@@ -74,6 +74,6 @@ call_args : {[]}
 comparison : 
     | TCEQ {$1} | TCNE {$1} | TCLT {$1} | TCLE {$1} 
     | TCGT {$1} | TCGE {$1} | TPLUS {$1} | TMINUS {$1} 
-    | TMUL {$1} | TDIV {$1} | TCAND{$1} | TCOR{$1}
+    | TMUL {$1} | TDIV {$1} | TCAND{$1} | TCOR{$1} | TMOD {$1}
     ;
 %%

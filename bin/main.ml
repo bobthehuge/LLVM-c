@@ -29,13 +29,13 @@ let set_input_file fname =
         input_file := fname
 
 let spec_list = [
-    ("-o", Arg.Set_string output_file, "Set output file name");
-    ("--out", Arg.Set_string output_file, "same as -o");
-    ("--bc", Arg.Set bc_only, "Produce LLVM bitcode only");
-    ("--ll", Arg.Set llprod, "Produce human readable ll file");
-    ("--nox", Arg.Set nox, "Don't produce executable from compiled llvm");
-    ("--clean", Arg.Set clean_after, "Delete produced intermediate files");
-]
+    ("-o", Arg.Set_string output_file, " Set output file name");
+    ("--out", Arg.Set_string output_file, " same as -o");
+    ("--bc", Arg.Set bc_only, " Produce LLVM bitcode only");
+    ("--ll", Arg.Set llprod, " Produce human readable ll file");
+    ("--nox", Arg.Set nox, " Don't produce executable from compiled llvm");
+    ("--clean", Arg.Set clean_after, " Delete produced intermediate files");
+] |> Arg.align
 
 let gen_ll fname =
     let _ = Sys.command (Printf.sprintf "llvm-dis %s" fname)
@@ -75,9 +75,8 @@ let () =
         |> Parser.program Lexer.token
     in begin
         codegen_main block !llvm_bc_file;
-        if (!bc_only) then exit 0;
+        if (!bc_only) then ();
         if (!llprod) then (gen_ll !llvm_bc_file; clean(); exit 0);
-        if (!nox) then (compile_llvm !llvm_bc_file; clean(); exit 0);
-        if (not !nox) then (compile_llvm !llvm_bc_file; gen_exe !llvm_compiled_file; clean(); exit 0);
+        compile_llvm !llvm_bc_file; (if not !nox then gen_exe !llvm_compiled_file); clean()
     end
 

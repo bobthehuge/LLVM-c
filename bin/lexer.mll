@@ -21,6 +21,7 @@ rule token = parse
   | "-"  as s { TMINUS(String.make 1 s) }
   | "*"  as s { TMUL(String.make 1 s) }
   | "/"  as s { TDIV(String.make 1 s) }
+  | "%"  as s { TMOD(String.make 1 s) }
   | '(' { TLPAREN }
   | ')' { TRPAREN }
   | '{' { TLBRACE }
